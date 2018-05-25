@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.pointer{
+    cursor: pointer;
+}
+
+.has-error-component {
+	border-bottom: none!important;
+    box-shadow: inset 0 -2px 0 #c00202!important;
+    border-color: #c00202!important;
+}

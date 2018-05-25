@@ -1,0 +1,52 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Calcular Dolar</h1>
+    <div class="row">
+      <form [formGroup]="formDollar">
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <field-validator [targetField]="formDollar.controls.amount">
+              <label for="formGroupExampleInput">Importe en {{typeMoney? 'Pesos' : 'Dolares'}} :</label>
+              <input type="number" class="form-control" id="concept" placeholder="Ingrese importe." formControlName="amount">
+            </field-validator>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <field-validator [targetField]="formDollar.controls.dollar">
+              <label for="formGroupExampleInput">Valor del Dolar :</label>
+              <input type="number" class="form-control" id="concept" placeholder="Ingrese valor del dolar." formControlName="dollar">
+            </field-validator>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Cambia a :</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [value]="true" [(ngModel)]="typeMoney"
+              (change)="calculateDollar()">
+            <label class="form-check-label" for="inlineRadio1">Dolar</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [value]="false" [(ngModel)]="typeMoney"
+              (change)="calculateDollar()">
+            <label class="form-check-label" for="inlineRadio2">Peso</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" (click)="calculateDollar()" class="btn btn-success">Calcular</button>
+    <hr>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Cambio en {{typeMoney? 'Dolares' : 'Pesos'}} :</label>
+          <input type="text" class="form-control" id="legajo" placeholder="Cambio" [(ngModel)]="result" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
