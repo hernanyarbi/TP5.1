@@ -12,6 +12,7 @@ import { CalificationsComponent } from './components/califications/califications
 import { HomeComponent } from './components/home/home.component';
 import { DollarCalculateComponent } from './components/dollar-calculate/dollar-calculate.component';
 import { FieldValidatorComponent } from './_sharedComponents/field-validator/field-validator.component';
+import { PassageComponent } from './components/passage/passage.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FieldValidatorComponent } from './_sharedComponents/field-validator/fie
     CalificationsComponent,
     HomeComponent,
     DollarCalculateComponent,
-    FieldValidatorComponent
+    FieldValidatorComponent,
+    PassageComponent
   ],
   imports: [
     BrowserModule,

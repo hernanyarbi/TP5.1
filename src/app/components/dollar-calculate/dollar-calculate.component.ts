@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FieldValidatorComponent } from '../../_sharedComponents/field-validator/field-validator.component';
+import { CustomError } from '../../_sharedComponents/field-validator/CustomError';
+import { FieldValidatorService } from '../../_sharedComponents/field-validator/field-validator.service';
 
 @Component({
   selector: 'app-dollar-calculate',
@@ -7,6 +10,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styles: []
 })
 export class DollarCalculateComponent implements OnInit {
+
+  @ViewChildren(FieldValidatorComponent)
+  validators: QueryList<FieldValidatorComponent>;
+  customErrors: Array<CustomError> = [];
 
   title = 'Pesos';
   typeMoney = true;
@@ -17,9 +24,11 @@ export class DollarCalculateComponent implements OnInit {
     dollar: new FormControl(null, [Validators.required, this.moneyValidator])
   });
 
-  constructor() { }
+  constructor(private fieldValidatorService: FieldValidatorService) { }
 
   ngOnInit() {
+    this.fieldValidatorService.inputComponent = this;
+    this.customErrors.push(new CustomError('invalid_money', 'El presio del dolar no es valido.'));
   }
 
   calculateDollar() {
@@ -32,8 +41,18 @@ export class DollarCalculateComponent implements OnInit {
 
   }
 
+  calculate() {
+    this.fieldValidatorService.clearErrors();
+    if (this.isValid()) this.calculateDollar();
+    else this.fieldValidatorService.showErrors();
+  }
+
+  isValid() {
+    return this.formDollar.valid;
+  }
+
   moneyValidator(control: FormControl): { [err: string]: boolean } {
-    if (control.value <= 0) return { 'invalid_money': true }
+    if (control.value <= 0) return { 'invalid_money': true };
     return null;
   }
 

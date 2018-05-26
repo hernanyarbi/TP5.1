@@ -1,0 +1,40 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Calcular Pasaje</h1>
+    <form #form="ngForm">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Precio de Pasaje :</label>
+            <input type="number" class="form-control" id="concept" placeholder="Ingrese precio de pasaje." [(ngModel)]="passage" name="passage">
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Tipo de Pasajero :</label>
+            <select class="custom-select" [(ngModel)]="typePassager" (change)="calculatePassage()" name="typePassager">
+              <option value="">Seleccione</option>
+              <option value="M">Menor</option>
+              <option value="A">Adulto</option>
+              <option value="J">Jubilado</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container" *ngIf="isValid()">
+  <div class="card">
+    <div class="card-header">
+      Pasaje
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Pasajero: {{getPassager().typePassager}} </h5>
+      <p class="card-text">Precio de pasaje: {{passage}}</p>
+      <p class="card-text">Tiene descueno de: {{getPassager().desc}}</p>
+      <p class="card-text">Total pasaje: {{totalPassage}}</p>
+    </div>
+  </div>
+</div>

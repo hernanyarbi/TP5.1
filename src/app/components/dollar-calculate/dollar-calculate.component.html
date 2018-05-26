@@ -1,13 +1,13 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Calcular Dolar</h1>
+    <form [formGroup]="formDollar">
     <div class="row">
-      <form [formGroup]="formDollar">
         <div class="col-12 col-md-4">
           <div class="form-group">
             <field-validator [targetField]="formDollar.controls.amount">
               <label for="formGroupExampleInput">Importe en {{typeMoney? 'Pesos' : 'Dolares'}} :</label>
-              <input type="number" class="form-control" id="concept" placeholder="Ingrese importe." formControlName="amount">
+              <input #component_validator type="number" class="form-control" id="concept" placeholder="Ingrese importe." formControlName="amount">
             </field-validator>
           </div>
         </div>
@@ -15,12 +15,12 @@
           <div class="form-group">
             <field-validator [targetField]="formDollar.controls.dollar">
               <label for="formGroupExampleInput">Valor del Dolar :</label>
-              <input type="number" class="form-control" id="concept" placeholder="Ingrese valor del dolar." formControlName="dollar">
+              <input #component_validator type="number" class="form-control" id="concept" placeholder="Ingrese valor del dolar." formControlName="dollar">
             </field-validator>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
     <div class="row">
       <div class="col-12 col-md-4">
         <div class="form-group">
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <button type="button" (click)="calculateDollar()" class="btn btn-success">Calcular</button>
+    <button type="button" (click)="calculate()" class="btn btn-success">Calcular</button>
     <hr>
     <div class="row">
       <div class="col-12 col-md-4">
