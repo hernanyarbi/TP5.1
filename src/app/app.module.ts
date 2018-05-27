@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DollarCalculateComponent } from './components/dollar-calculate/dollar-calculate.component';
 import { FieldValidatorComponent } from './_sharedComponents/field-validator/field-validator.component';
 import { PassageComponent } from './components/passage/passage.component';
+import { SendTextComponent } from './components/send-text/send-text.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PassageComponent } from './components/passage/passage.component';
     HomeComponent,
     DollarCalculateComponent,
     FieldValidatorComponent,
-    PassageComponent
+    PassageComponent,
+    SendTextComponent
   ],
   imports: [
     BrowserModule,

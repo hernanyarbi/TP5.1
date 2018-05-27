@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="card bg-success text-white text-center">
+    <div class="card-header">
+      Enviar Mensaje
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <field-validator [targetField]="formCalification.controls.clfWrite">
+                <label for="formGroupExampleInput">Nota Escrita :</label>
+                <input #component_validator type="number" class="form-control" id="write" placeholder="Ingrese nota de evaluacion escrita."
+                  formControlName="clfWrite">
+              </field-validator>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <field-validator [targetField]="formCalification.controls.clfOral">
+                <label for="formGroupExampleInput">Nota Oral :</label>
+                <input #component_validator type="number" class="form-control" id="talk" placeholder="Ingrese nota de evaluacion oral." formControlName="clfOral">
+              </field-validator>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      2 days ago
+    </div>
+  </div>
+</div>
