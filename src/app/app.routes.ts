@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DollarCalculateComponent } from './components/dollar-calculate/dollar-calculate.component';
 import { PassageComponent } from './components/passage/passage.component';
 import { SendTextComponent } from './components/send-text/send-text.component';
+import { TestCurseComponent } from './components/test-curse/test-curse.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
     { path: 'dollar', component: DollarCalculateComponent },
     { path: 'passage', component: PassageComponent },
     { path: 'text-message', component: SendTextComponent },
+    { path: 'test', component: TestCurseComponent },
     { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 

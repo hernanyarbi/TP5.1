@@ -1,0 +1,45 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Valorar Curso</h1>
+      <form [formGroup]="formCalification">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <field-validator [targetField]="formCalification.controls.legajo">
+                <label for="formGroupExampleInput">Mail :</label>
+                <input #component_validator type="email" class="form-control" id="legajo" placeholder="Ingrese Mail." formControlName="legajo">
+              </field-validator>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <field-validator [targetField]="formCalification.controls.clfConcept">
+                <label for="formGroupExampleInput">Nota Conceptual :</label>
+                <input #component_validator type="number" class="form-control" id="concept" placeholder="Ingrese nota conceptual." formControlName="clfConcept">
+              </field-validator>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <field-validator [targetField]="formCalification.controls.clfWrite">
+                <label for="formGroupExampleInput">Nota Escrita :</label>
+                <input #component_validator type="number" class="form-control" id="write" placeholder="Ingrese nota de evaluacion escrita."
+                  formControlName="clfWrite">
+              </field-validator>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-group">
+              <field-validator [targetField]="formCalification.controls.clfOral">
+                <label for="formGroupExampleInput">Nota Oral :</label>
+                <input #component_validator type="number" class="form-control" id="talk" placeholder="Ingrese nota de evaluacion oral." formControlName="clfOral">
+              </field-validator>
+            </div>
+          </div>
+        </div>
+        <button type="button" (click)="calculateCalifications()" class="btn btn-primary">Calcular Promedio</button>
+      </form>
+    </div>
+  </div>

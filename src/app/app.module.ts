@@ -14,6 +14,7 @@ import { DollarCalculateComponent } from './components/dollar-calculate/dollar-c
 import { FieldValidatorComponent } from './_sharedComponents/field-validator/field-validator.component';
 import { PassageComponent } from './components/passage/passage.component';
 import { SendTextComponent } from './components/send-text/send-text.component';
+import { TestCurseComponent } from './components/test-curse/test-curse.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SendTextComponent } from './components/send-text/send-text.component';
     DollarCalculateComponent,
     FieldValidatorComponent,
     PassageComponent,
-    SendTextComponent
+    SendTextComponent,
+    TestCurseComponent
   ],
   imports: [
     BrowserModule,

@@ -4,30 +4,58 @@
       Enviar Mensaje
     </div>
     <div class="card-body">
-      <form>
+      <form [formGroup]="formMessage">
         <div class="row">
-          <div class="col-12 col-md-4">
-            <div class="form-group">
-              <field-validator [targetField]="formCalification.controls.clfWrite">
-                <label for="formGroupExampleInput">Nota Escrita :</label>
-                <input #component_validator type="number" class="form-control" id="write" placeholder="Ingrese nota de evaluacion escrita."
-                  formControlName="clfWrite">
-              </field-validator>
+          <div class="col-8 offset-2">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Para :</label>
+                  <input #component_validator type="number" class="form-control" id="write" placeholder="Ingrese número de telefono." formControlName="receiver">
+                </div>
             </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="form-group">
-              <field-validator [targetField]="formCalification.controls.clfOral">
-                <label for="formGroupExampleInput">Nota Oral :</label>
-                <input #component_validator type="number" class="form-control" id="talk" placeholder="Ingrese nota de evaluacion oral." formControlName="clfOral">
-              </field-validator>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">De :</label>
+                  <input #component_validator type="text" class="form-control" id="talk" placeholder="Ingrese nombre de emisor." formControlName="transmitter">
+                </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Mensaje :</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="message"></textarea>
+                </div>
             </div>
           </div>
         </div>
       </form>
     </div>
     <div class="card-footer">
-      2 days ago
+      <button type="button" class="btn btn-primary">
+        Limpiar
+      </button>
+      <button [disabled]="!isValid()" (click)="sendMessage()" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Enviar
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mensaje enviado a : {{statusMessage.receiver}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{statusMessage.transmitter}}: {{statusMessage.message}}</p>
+        <p>{{statusMessage.time}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
