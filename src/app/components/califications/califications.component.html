@@ -5,9 +5,10 @@
       <div class="row">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <field-validator [targetField]="formCalification.controls.legajo">
+            <field-validator [targetField]="formCalification.controls.lu">
               <label for="formGroupExampleInput">Legajo :</label>
-              <input #component_validator type="text" class="form-control" id="legajo" placeholder="Ingrese el legajo del alumno." formControlName="legajo">
+              <input #component_validator type="text" class="form-control" id="legajo"
+                     placeholder="Ingrese el legajo del alumno." formControlName="lu">
             </field-validator>
           </div>
         </div>
@@ -15,26 +16,29 @@
       <div class="row">
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <field-validator [targetField]="formCalification.controls.clfConcept">
+            <field-validator [targetField]="formCalification.controls.notaConcepto">
               <label for="formGroupExampleInput">Nota Conceptual :</label>
-              <input #component_validator type="number" class="form-control" id="concept" placeholder="Ingrese nota conceptual." formControlName="clfConcept">
+              <input #component_validator type="number" class="form-control" id="concept"
+                     placeholder="Ingrese nota conceptual." formControlName="notaConcepto">
             </field-validator>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <field-validator [targetField]="formCalification.controls.clfWrite">
+            <field-validator [targetField]="formCalification.controls.notaEscrito">
               <label for="formGroupExampleInput">Nota Escrita :</label>
-              <input #component_validator type="number" class="form-control" id="write" placeholder="Ingrese nota de evaluacion escrita."
-                formControlName="clfWrite">
+              <input #component_validator type="number" class="form-control" id="write"
+                     placeholder="Ingrese nota de evaluacion escrita."
+                     formControlName="notaEscrito">
             </field-validator>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="form-group">
-            <field-validator [targetField]="formCalification.controls.clfOral">
+            <field-validator [targetField]="formCalification.controls.notaOral">
               <label for="formGroupExampleInput">Nota Oral :</label>
-              <input #component_validator type="number" class="form-control" id="talk" placeholder="Ingrese nota de evaluacion oral." formControlName="clfOral">
+              <input #component_validator type="number" class="form-control" id="talk"
+                     placeholder="Ingrese nota de evaluacion oral." formControlName="notaOral">
             </field-validator>
           </div>
         </div>
@@ -43,3 +47,11 @@
     </form>
   </div>
 </div>
+
+Califications
+
+<ul>
+  <li *ngFor="let calification of califications">
+    {{calification.lu}}
+  </li>
+</ul>

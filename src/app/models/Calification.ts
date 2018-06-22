@@ -1,6 +1,6 @@
 export class Calification {
-    legajo;
-    clfWrite: number;
-    clfOral: number;
-    clfConcept: number;
+  lu;
+  notaEscrito: number;
+  notaOral: number;
+  notaConcepto: number;
 }

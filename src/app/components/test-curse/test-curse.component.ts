@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-test-curse',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class TestCurseComponent implements OnInit {
+
+  formTest = new FormGroup({
+    mail: new FormControl(),
+    point: new FormControl()
+  });
 
   constructor() { }
 
